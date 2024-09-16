@@ -5,7 +5,7 @@ let currentLanguage = 'en'; // Start with English
 const textContent = {
     en: {
         heading: "Welcome to our AI-powered feature Farm Vision",
-        subheading: "Try out our new farm vision AI model. This feature allows you to check whether your crops are healthy or not.",
+        subheading: "Try out our new farm vision AI model. This feature allows you to check whether your crops are healthy or not. Click choose a file or snap a picture of the crop in your farm, wait a bit, and you will receive the response.",
         note: "For now, try out cabbages.",
         switchToFrench: "Switch to French",
         resultHealthy: "Healthy",
@@ -13,7 +13,7 @@ const textContent = {
     },
     fr: {
         heading: "Bienvenue dans notre fonctionnalité Farm Vision alimentée par l'IA",
-        subheading: "Essayez notre nouveau modèle d'IA farm vision. Cette fonctionnalité vous permet de vérifier si vos cultures sont en bonne santé ou non.",
+        subheading: "Essayez notre nouveau modèle d'IA farm vision. Cette fonctionnalité vous permet de vérifier si vos cultures sont en bonne santé ou non. Cliquez sur choisir un fichier ou prenez une photo de la culture dans votre ferme, attendez un peu, et vous recevrez la réponse.",
         note: "Pour l'instant, essayez avec des choux.",
         switchToFrench: "Passer à l'anglais",
         resultHealthy: "Sain",
@@ -54,12 +54,6 @@ document.getElementById("languageButton").addEventListener("click", () => {
     updateLanguage();
 });
 
-// Handle file upload
-document.getElementById('uploadButton').addEventListener('click', () => {
-    document.getElementById('imageUpload').click();
-});
-
-// Display the uploaded image and make a prediction
 document.getElementById('imageUpload').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -76,13 +70,6 @@ document.getElementById('imageUpload').addEventListener('change', (event) => {
         };
         reader.readAsDataURL(file);
     }
-});
-
-// Access camera when the "Access Camera" button is clicked
-document.getElementById('cameraButton').addEventListener('click', () => {
-    const imageUpload = document.getElementById('imageUpload');
-    imageUpload.setAttribute('capture', 'camera');
-    imageUpload.click();
 });
 
 function displayPrediction(predictions) {
